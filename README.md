@@ -4,7 +4,10 @@
 ## Getting starting:
 
 clone the repo and set the name of the project
-`git clone git@github.com:aaronjlech/simple-express-setup.git new-project`
+click the green button [clone/download] copy that url and paste it after `clone` in the terminal
+```
+git clone git@github.com:aaronjlech/simple-express-setup.git new-project
+```
 (new-project should be the name of your current project)
 
 Run the following next
