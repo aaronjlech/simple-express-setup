@@ -1,28 +1,22 @@
+const path = require('path');
 const express = require('express');
-const mustache = require('mustache-express');
+const app = express();
+const mongoose = require('mongoose');
+// const router = require('./controllers/index');
+const bodyParser = require("body-parser");
+mongoose.Promise = require('bluebird');
 
-// set our server object into a variable
-const application = express();
+// insert mongo db to use
+// mongoose.connect('mongodb://localhost:27017/todo-mvc');
 
-// set an engine called "mustache" using our mustache() library
-application.engine('mustache', mustache());
 
-// set our view engine to use the mustache engine
-application.set('view engine', 'mustache');
+app.use(bodyParser.json());
+app.use(express.static(__dirname + '/public'));
 
-//set our views to the ./views directory
-application.set('views', './views');
+app.get('/', function (req, res) {
+    res.sendFile(__dirname + "/public/index.html");
+}
 
-//uncomment this to "serve" your public folder
-// app.use(express.static(__dirname + '/public'));
-
-application.use('/', function(request, response){
-   // basic send response
-   response.send('heyy there');
-
-   //uncomment this to verify mustache is working
-   // response.render('index');
-})
 
 const port = 3000
 application.listen(port, function(){
